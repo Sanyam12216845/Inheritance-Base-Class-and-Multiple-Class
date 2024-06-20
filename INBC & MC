@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Base class Person
+class Person {
+private:
+    string name;
+
+public:
+    void setName(string name) {
+        this->name = name;
+    }
+
+    string getName() const {
+        return name;
+    }
+};
+
+// Base class Athlete
+class Athlete {
+public:
+    string sport;
+
+    void setSport(string sport) {
+        this->sport = sport;
+    }
+
+    string getSport() const {
+        return sport;
+    }
+};
+
+// Derived class Student inherits from Person and Athlete
+class Student : public Person, public Athlete {
+public:
+    int studentID;
+
+    void setStudentID(int studentID) {
+        this->studentID = studentID;
+    }
+
+    int getStudentID() const {
+        return studentID;
+    }
+};
+
+int main() {
+    Student student;
+    student.setName("John Doe");
+    student.setStudentID(12345);
+    student.setSport("Basketball");
+
+    cout << "Name: " << student.getName() << endl;
+    cout << "Student ID: " << student.getStudentID() << endl;
+    cout << "Sport: " << student.getSport() << endl;
+
+    return 0;
+}
